@@ -1,0 +1,37 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="sequenceGenerator"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.SequenceGenerator"
+        p:prefix="30" p:suffix="A" p:initial="100000" />
+        
+   	<bean id="aaa" class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.Battery">
+        <property name="name" value="AAA" />
+        <property name="price" value="2.5" />
+        <property name="rechargeable" value="true" />
+    </bean>
+
+    <bean id="cdrw" class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.Disc">
+        <property name="name" value="CD-RW" />
+        <property name="price" value="1.5" />
+        <property name="capacity" value="700" />
+    </bean>
+    
+    <bean id="sequenceGeneratorConstructor"
+	class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.SequenceGenerator">
+	    <constructor-arg value="30" />
+	    <constructor-arg value="100000" />
+	    <property name="suffix" value="A" />
+  	</bean>
+  	
+  	<bean id="sequenceGeneratorConstructorTwo"
+	class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.SequenceGenerator">
+	    <constructor-arg type="int" value="100000" />
+	    <constructor-arg type="java.lang.String" value="A" />
+	    <property name="prefix" value="30" />
+  	</bean>
+  
+</beans>

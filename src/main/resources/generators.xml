@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+  
+	<bean id="numberprefixGenerator"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.NumberPrefixGenerator">
+  	</bean>
+  	
+	<bean id="prefixGenerator"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.DatePrefixGenerator">
+    	<property name="pattern" value="yyyyMMdd" />
+  	</bean>
+  
+  	<bean id="datePrefixGenerator" primary="true"
+    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.DatePrefixGenerator">
+    	<property name="pattern" value="yyyyMMdd" />
+  	</bean>
+
+</beans>
+
+	

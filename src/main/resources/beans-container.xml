@@ -1,0 +1,142 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+	<bean id="sequenceGenerator"
+	    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGenerator">
+	
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <list>
+	            <value>A</value>
+	            <bean class="java.net.URL">
+	                <constructor-arg value="http" />
+	                <constructor-arg value="www.apress.com" />
+	                <constructor-arg value="/" />
+	            </bean>
+	            <null />
+	        </list>
+	    </property>
+	</bean>
+
+	<bean id="sequenceGenerator2"
+	    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGenerator">
+	
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <set>
+	            <value>A</value>
+	            <bean class="java.net.URL">
+	                <constructor-arg value="http" />
+	                <constructor-arg value="www.apress.com" />
+	                <constructor-arg value="/" />
+	            </bean>
+	            <null />
+	            <!-- Ignored because it's a set -->
+	            <value>A</value>
+	            <bean class="java.net.URL">
+	                <constructor-arg value="http" />
+	                <constructor-arg value="www.apress.com" />
+	                <constructor-arg value="/" />
+	            </bean>
+	            <null />
+	        </set>
+	    </property>
+	</bean>
+	
+	<bean id="sequenceGeneratorMap"
+    	class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGeneratorMap">
+
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <map>
+	            <entry>
+	                <key>
+	                    <value>type</value>
+	                </key>
+	                <value>A</value>
+	            </entry>
+	            <entry>
+	                <key>
+	                    <value>url</value>
+	                </key>
+	                <bean class="java.net.URL">
+	                    <constructor-arg value="http" />
+	                    <constructor-arg value="www.apress.com" />
+	                    <constructor-arg value="/" />
+	                </bean>
+	            </entry>
+	        </map>
+	    </property>
+	</bean>
+	
+	<bean id="sequenceGeneratorProperties"
+    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGeneratorProperties">
+
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <props>
+	            <prop key="type">A</prop>
+	            <prop key="url">http://www.apress.com/</prop>
+	            <prop key="null">null</prop>
+	        </props>
+	    </property>
+	</bean>
+
+	<bean id="sequenceGeneratorList"
+    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGeneratorList">
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <list value-type="int">
+	            <value>5</value>
+	            <value>10</value>
+	            <value>20</value>
+	        </list>
+	    </property>
+	</bean>
+	
+	<bean id="sequenceGeneratorSet"
+    class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGeneratorSet">
+
+	    <property name="prefix" value="30" />
+	    <property name="initial" value="100000" />
+	    <property name="suffixes">
+	        <bean class="org.springframework.beans.factory.config.SetFactoryBean">
+	            <property name="targetSetClass">
+	                <value>java.util.TreeSet</value>
+	            </property>
+	            <property name="sourceSet">
+	                <set>
+	                    <value>5</value>
+	                    <value>10</value>
+	                    <value>20</value>
+	                </set>
+	            </property>
+	        </bean>
+	    </property>
+	</bean>
+	
+	<bean id="sequenceGeneratorUtilSet"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.containers.SequenceGeneratorUtilSet">
+        <property name="prefix" value="30"/>
+        <property name="initial" value="100000" />
+        <property name="suffixes">
+            <util:set set-class="java.util.TreeSet">
+                <value>5</value>
+                <value>10</value>
+                <value>20</value>
+            </util:set>
+        </property>
+    </bean>
+	
+</beans>

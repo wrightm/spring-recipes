@@ -1,0 +1,38 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    
+
+    <bean id="sequenceGenerator"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.SequenceGenerator"
+        p:suffix="A" p:initial="1000000"
+        p:prefixGenerator-ref="datePrefixGenerator" />
+        
+    <bean id="sequenceGenerator2"
+	  class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.SequenceGenerator">
+      <constructor-arg ref="datePrefixGenerator" />
+      <property name="initial" value="100000" />
+      <property name="suffix" value="A" />
+    </bean>
+    
+    <bean id="sequenceGenerator3"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.SequenceGenerator"
+        autowire="byType">
+        <property name="initial" value="100000" />
+        <property name="suffix" value="A" />
+  	</bean>
+  	
+	<bean id="sequenceGenerator4"
+        class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.fromref.SequenceGenerator"
+        autowire="byName">
+        <property name="initial" value="900000" />
+        <property name="suffix" value="A" />
+  	</bean>
+ 
+ 	<import resource="generators.xml"/>
+
+</beans>
+
