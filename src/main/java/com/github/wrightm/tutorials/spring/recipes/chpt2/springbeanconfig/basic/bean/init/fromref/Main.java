@@ -6,8 +6,11 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext context = 
-            new GenericXmlApplicationContext("beans-ref.xml");
+        
+    	
+    	
+    	final ApplicationContext context = 
+            new GenericXmlApplicationContext("chp2/beans-ref.xml");
 
         SequenceGenerator generator =
             (SequenceGenerator) context.getBean("sequenceGenerator");

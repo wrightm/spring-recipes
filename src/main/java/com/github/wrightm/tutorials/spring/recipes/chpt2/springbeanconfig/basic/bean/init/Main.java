@@ -10,7 +10,7 @@ public class Main {
     	final String resources = System.getProperty("user.dir") + "/src/main/resources";
         
         ApplicationContext context = 
-            new GenericXmlApplicationContext("beans.xml");
+            new GenericXmlApplicationContext("chp2/beans.xml");
 
         SequenceGenerator generator =
             (SequenceGenerator) context.getBean("sequenceGenerator");

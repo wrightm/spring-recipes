@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         ApplicationContext context = 
-            new GenericXmlApplicationContext("beans-container.xml");
+            new GenericXmlApplicationContext("chp2/beans-container.xml");
 
         SequenceGenerator generator =
             (SequenceGenerator) context.getBean("sequenceGenerator");

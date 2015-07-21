@@ -32,7 +32,7 @@
     <bean id="aaa" class="com.github.wrightm.tutorials.spring.recipes.chpt2.springbeanconfig.basic.bean.init.propertyfiles.Battery">
         <property name="name" value="AAA" />
         <property name="price" value="2.5" />
-        <property name="discount" value="${specialcustomer.discount:0}" />
+       <!--  <property name="discount" value="${specialcustomer.discount:0}" /> -->
         <property name="rechargeable" value="true" />
     </bean>
 
